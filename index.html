@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musical Keys</title>
+</head>
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #555;
+    }
+
+    body span {
+        width: 40px;
+        height: 40px;
+        background-color: #333;
+        text-align: center;
+        color: #eee;
+        padding: 20px;
+        margin: 0 auto;
+        border: 1px solid #eee;
+        cursor: pointer;
+        transition: all 200ms ease;
+    }
+
+    body span.active {
+        color: #333;
+        background-color: #eee;
+        border: none;
+        transform: scale(0.5);
+        transition: all 200ms ease;
+    }
+</style>
+
+<body>
+    <span>A</span>
+    <span>B</span>
+    <span>C</span>
+    <span>D</span>
+    <span>E</span>
+    <span>F</span>
+    <audio src="/24-piano-keys/key01.ogg"></audio>
+    <audio src="/24-piano-keys/key02.ogg"></audio>
+    <audio src="/24-piano-keys/key03.ogg"></audio>
+    <audio src="/24-piano-keys/key04.ogg"></audio>
+    <audio src="/24-piano-keys/key05.ogg"></audio>
+    <audio src="/24-piano-keys/key06.ogg"></audio>
+</body>
+<script>
+    let span = document.querySelectorAll('span')
+    let audio = document.querySelectorAll('audio')
+    span.forEach(function (e, i) {
+        e.onclick = function name() {
+            this.classList.add('active')
+            audio[i].play()
+            audio[i].playbackRate = 16
+            setTimeout(function () {
+                e.classList.remove('active')
+            }, 120)
+        }
+
+    })
+</script>
+
+</html>
